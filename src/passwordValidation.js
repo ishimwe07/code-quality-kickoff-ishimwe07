@@ -10,12 +10,14 @@ export default function isValidPassword(password = "") {
   // The following line ensures, that password is always a string, like the number 128 -> string "128"
   if (typeof password !== "string") password = String(password);
 
+  const myRegex = /^(?=.*[a-z ])(?=.*[0-9])(?=.*[A-Z])[a-zA-Z0-9]{10}$/gm;
+
   // * * * YOUR CODE GOES IN HERE ... * * *
-  /*
-   * if (password is not exactly 10 digits or characters...) {
-   *   return ...;
-   * }
-   *
+  
+    if (!myRegex.test(password)) {
+      return false;
+    }
+   /*
    * if (is not composed by digits and numbers) {
    *   return ...;
    * }
