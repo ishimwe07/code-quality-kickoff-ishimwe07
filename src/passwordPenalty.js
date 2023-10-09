@@ -6,11 +6,18 @@
  * @returns {number}
  */
 export default function penaltyPoints(password = "") {
-  // The following line ensures, that password is always a string, like the number 128 -> string "128"
-  if (typeof password !== "string") password = String(password);
+  if(!password) return 0;
 
-  // * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-  // * * * INSERT YOUR CODE HERE * * * * * * * * * * * * * *
-  // * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-  //
+  const SequenceNumber = password?.match(/(.)\1+/gm)
+  
+    let penalities = 0;
+
+    SequenceNumber?.forEach(element => {
+      if(element.length > 2){
+        penalities +=2;
+      }else {
+        penalities++;
+      }
+    });
+    return penalities;
 }
