@@ -5,12 +5,6 @@
  */
 
 // FUNCTION 1
-export default function countUpperCaseRs(letters) {
-  var counts = 0;
-  for (let letter of letters) {
-    if (letter == "R") {
-      counts++;
-    }
-  }
-  return counts;
-}
+ const countUpperCaseRs = letters => letters.match(/R/g).length;
+
+export default countUpperCaseRs;

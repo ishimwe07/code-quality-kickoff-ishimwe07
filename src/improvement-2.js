@@ -5,11 +5,6 @@
  */
 
 // FUNCTION 2
-export default function filterItems(items) {
-  const filteredItems = [];
-  for (let item of items) {
-    if (item.type === "Food") filteredItems.push(item);
+ const filterItems = items => items.filter(item => item.type === "Food");
 
-  }
-  return filteredItems;
-}
+export default filterItems;
