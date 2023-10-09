@@ -8,6 +8,7 @@ export const forbiddenPasswords = ["amG84h6yeQ", "mc9Q20pdjH", "jnT6Q2f8U5"];
  */
 export default function isValidPassword(password = "") {
   // The following line ensures, that password is always a string, like the number 128 -> string "128"
+  if(forbiddenPasswords.includes(password)) return false;
   if (typeof password !== "string") password = String(password);
 
   const myRegex = /^(?=.*[a-z ])(?=.*[0-9])(?=.*[A-Z])[a-zA-Z0-9]{10}$/gm;
