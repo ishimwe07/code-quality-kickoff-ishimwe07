@@ -5,12 +5,12 @@
  */
 
 // FUNCTION 1
-export default function cntRbt(ls) {
-  var cnt = 0;
-  for (var i = 0; i < ls.length; i++) {
-    if (ls[i] == "R") {
-      cnt++;
+export default function countUpperCaseRs(letters) {
+  var counts = 0;
+  for (let letter of letters) {
+    if (letter == "R") {
+      counts++;
     }
   }
-  return cnt;
+  return counts;
 }

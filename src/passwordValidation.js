@@ -12,16 +12,21 @@ export default function isValidPassword(password = "") {
 
   const myRegex = /^(?=.*[a-z ])(?=.*[0-9])(?=.*[A-Z])[a-zA-Z0-9]{10}$/gm;
 
-  // * * * YOUR CODE GOES IN HERE ... * * *
-  
-    if (!myRegex.test(password)) {
+  const numberOfCharacters = (password) => {
+    let object = {};
+    for (let character of password){
+      if(object.hasOwnProperty(character)){
+        object[character]++;
+      }else{
+        object[character] = 1;
+      }
+    }
+    return Object.entries(object).length > 3? true : false;
+  }
+    if (!(myRegex.test(password) && numberOfCharacters(password))) {
       return false;
     }
-   /*
-   * if (is not composed by digits and numbers) {
-   *   return ...;
-   * }
-   */
+
   const setOfPassword = new Set([...password]);
   if (setOfPassword.size < 4) return false;
   return true;
