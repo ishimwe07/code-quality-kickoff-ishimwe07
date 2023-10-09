@@ -24,7 +24,20 @@ export default function isValidPassword(password = "") {
     }
     return Object.entries(object).length > 3? true : false;
   }
-    if (!(myRegex.test(password) && numberOfCharacters(password))) {
+
+  const checkOrder = (password) => {
+    const ascendingNumbers = "123456789"
+    const descendingNumbers = "987654321"
+    const arrayOfNumbers = password.match(/([0-9])+/g);
+    for (let el of  arrayOfNumbers){
+      if((ascendingNumbers.includes(el) || descendingNumbers.includes(el)) && el.length > 1){
+        return false;
+      }
+    }
+    
+    return true;
+  }
+    if (!(myRegex.test(password) && numberOfCharacters(password) && checkOrder(password))) {
       return false;
     }
 
