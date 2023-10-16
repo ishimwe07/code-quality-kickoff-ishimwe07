@@ -6,18 +6,18 @@
  * @returns {number}
  */
 export default function penaltyPoints(password = "") {
-  if(!password) return 0;
+  if (!password) return 0;
 
-  const SequenceNumber = password?.match(/(.)\1+/gm)
-  
-    let penalities = 0;
+  const SequenceNumber = password?.match(/(.)\1+/gm);
 
-    SequenceNumber?.forEach(element => {
-      if(element.length > 2){
-        penalities +=2;
-      }else {
-        penalities++;
-      }
-    });
-    return penalities;
+  let penalities = 0;
+
+  SequenceNumber?.forEach((element) => {
+    if (element.length > 2) {
+      penalities += 2;
+    } else {
+      penalities++;
+    }
+  });
+  return penalities;
 }
