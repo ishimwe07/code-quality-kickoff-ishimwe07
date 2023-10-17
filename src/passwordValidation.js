@@ -12,6 +12,27 @@ export default function isValidPassword(password = "") {
   if (!/^(?=.*[a-z ])(?=.*[0-9])(?=.*[A-Z])[a-zA-Z0-9]{10}$/gm.test(password))
     return false;
 
+    const consecutiveNumbers = [
+      "012",
+      "123",
+      "234",
+      "345",
+      "456",
+      "567",
+      "678",
+      "789",
+      "987",
+      "876",
+      "765",
+      "654",
+      "543",
+      "432",
+      "321",
+      "210",
+    ].some(number=>password.includes(number))
+
+  if(consecutiveNumbers) return false;
+
   if (new Set([...password]).size < 4) return false;
 
   return true;
