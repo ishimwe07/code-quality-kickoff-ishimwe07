@@ -1,3 +1,3 @@
- const filterItems = items => items.filter(item => item.type === "Food");
+ const filterFoodItems = items => items.filter(item => item.type === "Food");
 
-export default filterItems;
+export default filterFoodItems;
