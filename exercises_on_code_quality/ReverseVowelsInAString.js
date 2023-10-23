@@ -1,7 +1,7 @@
-const reverseVowels = (str) => {
+const reverseVowels = (string) => {
   //The regex help to test or match all vowels in the string with out considering upper or lower cases.
-  let vowels = str.match(/[aiuoe]/gi);
-  return str
+  const vowels = string.match(/[aiuoe]/gi);
+  return string
     .split("")
     .map((character) =>
       /[aiuoe]/gi.test(character) ? vowels.pop() : character
