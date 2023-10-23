@@ -1,4 +1,4 @@
-const romanToNumber = (roman) => {
+const solution = (roman) => {
   const romansObject = {
     I: 1,
     V: 5,
@@ -12,14 +12,16 @@ const romanToNumber = (roman) => {
   let solution = 0;
   let index = 0;
   while (index < romanArray.length) {
-    if (romansObject[romanArray[i]] < romansObject[romanArray[index + 1]]) {
-      solution += romansObject[romanArray[index + 1]] - romansObject[romanArray[i]];
-      romanArray.splice(i, 2);
-      index = index - 1;
-    } else {
-      solution += romansObject[romanArray[i]];
+    const currentRomanNumber = romansObject[romanArray[index]];
+    const nextRomanNumber = romansObject[romanArray[index + 1]];
+    if (currentRomanNumber < nextRomanNumber) {
+      solution += nextRomanNumber - currentRomanNumber;
+      romanArray.splice(index, 2);
+      continue;
     }
+    solution += currentRomanNumber;
+
     index = index + 1;
   }
   return solution;
-}
+};
